@@ -15,7 +15,7 @@ function Textarea(props) {
                 <h3>Preview</h3>
                 <p>{text}</p>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                <p>{text.split(" ").length} words and {text.length} characters {text.split(" ").length*0.0045} minutes to read</p>
             </div>
         
         </>
