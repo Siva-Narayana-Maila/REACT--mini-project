@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
-
+import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import Textarea from './components/Textarea';
 
@@ -12,16 +12,30 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       document.body.style.color = "white";
+      showAlert("Dark mode has been enabled", "success");
     }
     else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
+      showAlert("Light mode has been enabled", "success");
     }
   }
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
+      setAlert({
+          msg: message,
+          type: "success"
+      });
+  }
+  setTimeout(() => {
+      setAlert(null);
+  }, 2000);
   return (
     <>
       <Navbar title="TextUtils" mode={mode} modeToggle={modeToggle} />
+      <Alert alert={alert} />
       <Textarea mode={mode} modeToggle={modeToggle} />
     </>
   );
