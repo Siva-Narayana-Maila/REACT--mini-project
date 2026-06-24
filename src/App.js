@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import Textarea from './components/Textarea';
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About";
 
 
 function App() {
@@ -30,15 +32,20 @@ function App() {
       });
   }
   setTimeout(() => {
-      setAlert(null);
+    setAlert(null);
   }, 2000);
   return (
-    <>
-      <Navbar title="TextUtils" mode={mode} modeToggle={modeToggle} />
-      <Alert alert={alert} />
-      <Textarea mode={mode} modeToggle={modeToggle} />
-    </>
-  );
+  <>
+    <Navbar title="TextUtils" mode={mode} modeToggle={modeToggle} />
+    <Alert alert={alert} />
+
+    <Routes>
+      <Route path="/" element={<Textarea mode={mode} modeToggle={modeToggle} />}/>
+
+      <Route path="/about" element={<About mode={mode} />}/>
+    </Routes>
+  </>
+);
 }
 
 export default App;
