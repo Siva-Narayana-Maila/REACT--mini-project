@@ -40,7 +40,7 @@ function App() {
     <Alert alert={alert} />
 
     <Routes>
-      <Route path="/" element={<Textarea mode={mode} modeToggle={modeToggle} />}/>
+      <Route path="/" element={<Textarea mode={mode} modeToggle={modeToggle} showAlert={showAlert} />}/>
 
       <Route path="/about" element={<About mode={mode} />}/>
     </Routes>
